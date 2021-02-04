@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="【罷免黃捷投票2月6日登場】時程、門檻一次看｜罷捷專題｜民視新聞網" />
+    <meta property="og:site_name" content="罷捷投票-民視數位專題" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:url" content="https://www.ftvnews.com.tw/topics/bajay/index.html" />
+    <meta property="og:image" content="https://www.ftvnews.com.tw/topics/bajay/resource/cover1.jpg" />
+    <meta property="og:image:width" content="563" />
+    <meta property="og:image:height" content="296" />
+    <meta property="og:description"
+        content="繼前高雄市長韓國瑜、桃園市議員王浩宇接連被罷免成功後，高雄市議員黃捷的罷免投票案即將在2月6日登場。民視新聞特別整理出「罷免理由」、「通過門檻」、「正反方說法」以及相關新聞，投票日當天也會提供即時票數，讓關心罷捷投票的民眾能一次掌握。" />
+    <meta property="fb:app_id" content="157389381527660" />
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <title>【罷免黃捷投票2月6日登場】時程、門檻一次看｜罷捷專題｜民視新聞網</title>
+
+    <link rel="icon" href="/images/favicon.ico" />
+    <link rel="canonical" href="https://www.ftvnews.com.tw/topics/bajay/index.html" />
+
+    <!-- style -->
+    <link rel="stylesheet" href="./assets/style.css?ver=202102040830">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <header class="clearfix">
+            <ul v-if="menu">
+                <li v-for="item of list"><a :href="item.link">{{item.item}}</a></li>
+            </ul>
+            <ul v-else>
+                <i v-if="close" @click="showMenu" class="fas fa-2x fa-list"></i>
+            </ul>
+            <ul v-show="!close">
+                <i @click="hideMenu" class="fas fa-times"></i>
+            </ul>
+        </header>
+        <div v-if="mobile" class="banner">
+            <img :src="banner.url" :alt="banner.alt">
+            <h1><span>{{main1}}</span><span>{{main2}}</span> {{title}}</h1>
+            <h2>{{subtitle}}</h2>
+            <h3><a href="#ch1">{{arrow}}<i class="fas fa-sort-down"></i></a></h3>
+            <span class="slogan">
+                <img :src="slogan[0].img1" :alt="slogan[0].alt">
+                <img :src="slogan[1].img2" :alt="slogan[0].alt">
+                <img :src="slogan[2].img3" :alt="slogan[0].alt">
+                <img :src="slogan[3].img4" :alt="slogan[0].alt">
+            </span>
+        </div>
+        <div v-else class="banner_mb">
+            <img :src="banner.mburl" :alt="banner.alt">
+        </div>
+        <main>
+            <section id="ch1">
+                <h2>{{chapter1.title}}</h2>
+                <div class="box_layout">
+                    <div class="box_vote">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/XxJKnDLYZz4"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="box_vote">
+                        <div class="box">
+                            <p>同意<span>（門檻：72,892）</span></p>
+                            <div class="progressbar">
+                                <span class="vote_agree_bar">{{chapter1.vote_agree}}</span>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <p>不同意</p>
+                            <div class="progressbar">
+                                <span class="vote_disagree_bar">{{chapter1.vote_disagree}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p v-for="value of chapter1.part">{{value}}</p>
+            </section>
+
+            <section id="ch2">
+                <h2>{{chapter2.title}}</h2>
+                <ul>
+                    <li v-for="stuff of chapter2.dateScript">
+                        {{stuff.date}} - {{stuff.script}}
+                    </li>
+                </ul>
+            </section>
+
+            <section id="ch3">
+                <h2>{{chapter3.title}}</h2>
+                <p>{{chapter3.script}}</p>
+                <ol>
+                    <li v-for="value of chapter3.part">
+                        {{value}}
+                    </li>
+                </ol>
+            </section>
+
+            <section id="ch4">
+                <h2>{{chapter4.title}}</h2>
+                <p>{{chapter4.part}}</p>
+            </section>
+
+            <section id="ch5">
+                <h2>{{chapter5.title}}</h2>
+                <h3>{{chapter5.disagree}}</h3>
+                <div v-for="person of chapter5.disParty">
+                    <h4>
+                        <img :src="person.photo" :alt="person.name">{{person.name}}：
+                    </h4>
+                    <p class="party_ag">{{person.talk}}
+                        <span>
+                            <img src="./assets/images/dia_b.png">
+                        </span>
+                    </p>
+                </div>
+                <hr>
+
+                <h3>{{chapter5.agree}}</h3>
+                <div v-for="person of chapter5.agParty">
+                    <h4>
+                        <img :src="person.photo" :alt="person.name">{{person.name}}：
+                    </h4>
+                    <p class="party_dis">{{person.talk}}
+                        <span>
+                            <img src="./assets/images/dia_r.png">
+                        </span>
+                    </p>
+                </div>
+                <hr>
+            </section>
+
+            <section id="ch6">
+                <h2>{{chapter6.title}}</h2>
+                <div class="readmore">
+                    <a :href="chapter6.link" :target="chapter6.target">點我看更多＃罷捷</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer_logo">
+                <img :src="logo.url" alt="logo.alt">
+                <span>民視新聞網</span>
+            </div>
+        </footer>
+        <!-- control -->
+        <div class="goToTop" @click="handleScroll" v-if="scroll">
+            <i class="fas fa-chevron-up fa-lg"></i>
+        </div>
+        <div id="fb-root"></div>
+        <div id="social" data-href="https://www.ftvnews.com.tw/topics/bajay/index.html" data-layout="button_count"
+            data-size="large"><a target="_blank"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ftvnews.com.tw%2Ftopics%2Fbajay%2Findex.html&amp;src=sdkpreparse"
+                class="fb-xfbml-parse-ignore">
+                <div class="goToFB">
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-101119806-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-101119806-1');
+    </script>
+
+    <!-- fb social share -->
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0&appId=1854261788223985&autoLogAppEvents=1"></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/44e5d9f0d5.js" crossorigin="anonymous"></script>
+
+    <!-- script -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'
+        integrity='sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js'
+        integrity='sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'
+        integrity='sha512-YXLGLsQBiwHPHLCAA9npZWhADUsHECjkZ71D1uzT2Hpop82/eLnmFb6b0jo8pK4T0Au0g2FETrRJNblF/46ZzQ=='
+        crossorigin='anonymous'></script>
+    <script src="./assets/script.js?ver=202102040830"></script>
+
+</body>
+
+</html>

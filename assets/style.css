@@ -1,0 +1,606 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+ul {
+    list-style: none;
+}
+
+ol {
+    list-style: trad-chinese-informal;
+    margin-left: 3%;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #384776;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* global */
+
+* {
+    touch-action: pan-y;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+ul, ol {
+    padding: 1% 0;
+}
+
+ul li, ol li {
+    line-height: 30px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: bolder;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-top: 2%;
+}
+
+p, ul, ol {
+    line-height: 30px;
+    font-size: 1.2rem;
+}
+
+/* header */
+
+header {
+    background-color: hsla(226, 36%, 34%, 0.9);
+    width: 100%;
+    top: 0;
+    z-index: 98;
+    position: fixed;
+}
+
+header h1 {
+    text-align: center;
+}
+
+header ul {
+    float: right;
+}
+
+header ul li {
+    float: left;
+    transition: .3s;
+}
+
+header ul li a {
+    color: white;
+    display: block;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+}
+
+header ul li:hover {
+    background-color: #1a2f68;
+}
+
+header div, header img {
+    width: 100%;
+}
+
+@media screen and (max-width:1000px) {
+    header ul, header ul li {
+        float: none;
+        text-align: center;
+    }
+}
+
+.fa-list, .fa-times {
+    color: white;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner h1, .banner h2, .banner h3 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    font-size: 3.6rem;
+    font-weight: bolder;
+    font-family: '蘭亭黑-繁';
+    z-index: 99;
+}
+
+.banner h1 {
+    top: 40%;
+    color: #374574;
+    animation: fadein 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.banner h1 span {
+    font-size: 6rem;
+    text-shadow: 0 0 3px #374574;
+}
+
+.banner h1 span:nth-child(2) {
+    color: #f9d482;
+}
+
+.banner h2 {
+    top: 53%;
+    margin: 20px 0;
+    color: #374574;
+    animation: fadein 1s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.banner h3 {
+    top: 70%;
+    color: #374574;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    font-weight: normal;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    animation: updown 3s infinite;
+}
+
+@keyframes updown {
+    0% {
+        top: 70%;
+    }
+    50% {
+        top: 73%;
+    }
+    100% {
+        top: 70%;
+    }
+}
+
+.banner .slogan img {
+    position: absolute;
+    max-width: 700px;
+}
+
+.banner .slogan img:nth-child(1) {
+    top: 10%;
+    right: 0;
+    animation: float1 1s .5s backwards;
+}
+
+.banner .slogan img:nth-child(2) {
+    top: 60%;
+    right: 0;
+    animation: float2 1s 1s backwards;
+}
+
+.banner .slogan img:nth-child(3) {
+    top: 10%;
+    left: 0;
+    animation: float1 1s 1.5s backwards;
+}
+
+.banner .slogan img:nth-child(4) {
+    top: 60%;
+    left: 0;
+    animation: float2 1s 2s backwards;
+}
+
+@keyframes float1 {
+    0% {
+        top: 60%;
+        opacity: 0;
+    }
+    100% {
+        top: 10%;
+        opacity: 1;
+    }
+}
+
+@keyframes float2 {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+    100% {
+        top: 60%;
+        opacity: 1;
+    }
+}
+
+.banner h4 {
+    bottom: 8%;
+    right: 8%;
+    padding: 10px;
+    color: #ebd395;
+    background-color: #384776;
+    border-radius: 23px;
+    display: inline;
+    position: absolute;
+    font-size: 1.6rem;
+    animation: fadein 1s;
+}
+
+.banner .banner_person {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 500px;
+    animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.banner_mb {
+    margin-top: 40px;
+}
+
+/* main */
+
+main {
+    width: 80%;
+    padding: 1% 0;
+    margin: auto;
+}
+
+section {
+    padding: 30px 0;
+}
+
+section h2 {
+    padding: 16px 0;
+    background-color: #384776;
+    color: white;
+    padding-left: 10px;
+}
+
+section h3 {
+    padding-top: 2%;
+    text-align: center;
+}
+
+section h4 img {
+    width: 70px;
+}
+
+section p {
+    margin-top: 10px;
+}
+
+section ul li, section ol li {
+    line-height: 30px;
+    margin-left: 5%;
+}
+
+.box_layout {
+    width: 100%;
+    display: inline-flex;
+    text-align: center;
+}
+
+.box_vote {
+    width: 49%;
+    padding: 10px;
+    display: inline-block;
+    margin: auto;
+}
+
+.box {
+    color: white;
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+.box p {
+    text-align: center;
+    font-weight: bolder;
+    line-height: inherit;
+    padding: 10px;
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width:998px) {
+    .box_layout {
+        display: block;
+    }
+    .box_vote {
+        width: 100%;
+    }
+}
+
+.box:nth-child(1) p span {
+    white-space: nowrap;
+    font-size: 1.4rem;
+}
+
+.box:nth-child(1) p {
+    color: #743737;
+}
+
+.box:nth-child(2) p {
+    color: #374574;
+}
+
+.progressbar {
+    background-color: #aaa;
+    border-radius: 10px;
+    position: relative;
+}
+
+.box .progressbar span {
+    text-align: center;
+    color: white;
+    display: block;
+    border-radius: 10px;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+.box:nth-child(1) .progressbar span {
+    background-color: #743737;
+}
+
+.box:nth-child(2) .progressbar span {
+    background-color: #374574;
+}
+
+.vote_agree_bar::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.8rem;
+    left: 72.8%;
+    top: 5px;
+    position: absolute;
+    color: #743737;
+    content: "\f11e";
+}
+
+#ch5 p {
+    background-color: rgb(186, 186, 186);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+#ch5 div {
+    margin-bottom: 30px;
+}
+
+#ch5 p::before {
+    content: '”';
+    font-size: 50px;
+}
+
+#ch5 span img {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    z-index: -1;
+    width: 30px;
+}
+
+#ch5 .party_ag {
+    background-color: #d0d9f9;
+}
+
+#ch5 .party_dis {
+    background-color: #eacdcd;
+}
+
+#ch6 .readmore {
+    text-align: center;
+    margin: 5% auto;
+    border: 1px solid #384776;
+    padding: 10px;
+    transition: .3s;
+    width: 170px;
+}
+
+#ch6 a {
+    color: #384776;
+    display: block;
+}
+
+#ch6 .readmore:hover {
+    background-color: #384776;
+}
+
+#ch6 .readmore:hover a {
+    color: white;
+}
+
+/* footer */
+
+footer {
+    background-color: #374574;
+    padding: 10px;
+    color: white;
+}
+
+footer img {
+    width: 30px;
+    vertical-align: middle;
+}
+
+.footer_logo a {
+    color: white;
+}
+
+.footer_logo {
+    text-align: center;
+}
+
+.footer_logo a:visited {
+    color: white;
+}
+
+/* 相關新聞 */
+
+.col_box {
+    width: 370px;
+    height: 370px;
+    display: inline-block;
+    background-color: white;
+    margin: 2%;
+    cursor: pointer;
+    box-shadow: 1px 2px 12px #c3c3c3;
+}
+
+.col_box h5, .col_box p {
+    text-align: left;
+    padding: 15px;
+}
+
+.col_box p {
+    font-size: 1rem;
+}
+
+.cover_news {
+    height: 210px;
+    overflow: hidden;
+}
+
+.col_box .cover_news img {
+    transition: .2s;
+}
+
+.col_box:hover .cover_news img {
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+.cover_news p {
+    font-size: 1rem;
+}
+
+@media screen and (max-width:420px) {
+    .cover_news {
+        height: 190px;
+    }
+    .col_box {
+        width: 90%;
+        height: auto;
+        margin-bottom: 30px;
+    }
+}
+
+/* 控制按鈕 */
+
+.goToTop, .goToFB {
+    position: fixed;
+    right: 2%;
+    border: 3px solid;
+    border-radius: 30px;
+    transition: .3s;
+    cursor: pointer;
+    background-color: #f4db99;
+    box-shadow: 1px 2px 3px black;
+}
+
+.goToTop {
+    bottom: 1%;
+    padding: 13px;
+    color: #374574;
+    cursor: pointer;
+}
+
+.goToFB {
+    bottom: 10%;
+    padding: 15px;
+    color: #374574;
+    cursor: pointer;
+}
+
+.goToTop:hover, .goToFB:hover {
+    background-color: #374574;
+}
+
+.goToTop:hover i, .goToFB:hover i {
+    color: white;
+}
