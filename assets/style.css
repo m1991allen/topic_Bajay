@@ -20,6 +20,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
+    width: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica, sans-serif;
@@ -64,7 +65,7 @@ img {
 
 * {
     touch-action: pan-y;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
 html {
@@ -398,10 +399,12 @@ section ul li, section ol li {
 
 .box:nth-child(1) p {
     color: #743737;
+    white-space: nowrap;
 }
 
 .box:nth-child(2) p {
     color: #374574;
+    white-space: nowrap;
 }
 
 .progressbar {
@@ -474,15 +477,23 @@ section ul li, section ol li {
 #ch6 .readmore {
     text-align: center;
     margin: 5% auto;
-    border: 1px solid #384776;
+    border: 2px solid #384776;
     padding: 10px;
     transition: .3s;
-    width: 170px;
+    font-size: 1.2rem;
+    display: table;
+}
+
+@media screen and (max-width:500px) {
+    #ch6 .readmore {
+        width: 100%;
+    }
 }
 
 #ch6 a {
     color: #384776;
     display: block;
+    line-height: 50px;
 }
 
 #ch6 .readmore:hover {
@@ -491,6 +502,10 @@ section ul li, section ol li {
 
 #ch6 .readmore:hover a {
     color: white;
+}
+
+#ch6 .readmore span {
+    white-space: nowrap !important;
 }
 
 /* footer */

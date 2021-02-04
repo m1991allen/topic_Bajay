@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description"
         content="繼前高雄市長韓國瑜、桃園市議員王浩宇接連被罷免成功後，高雄市議員黃捷的罷免投票案即將在2月6日登場。民視新聞特別整理出「罷免理由」、「通過門檻」、「正反方說法」以及相關新聞，投票日當天也會提供即時票數，讓關心罷捷投票的民眾能一次掌握。">
-    <meta property="og:title" content="【罷免黃捷投票2月6日登場】時程、門檻一次看｜罷捷專題｜民視新聞網" />
+    <meta property="og:title" content="「報復性罷免」止步高雄？黃捷罷免案投票門檻、罷免時程、Live開票一次看｜民視數位專題｜" />
     <meta property="og:site_name" content="罷捷投票-民視數位專題" />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="zh_TW" />
@@ -21,7 +22,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
     <META HTTP-EQUIV="EXPIRES" CONTENT="0">
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <title>【罷免黃捷投票2月6日登場】時程、門檻一次看｜罷捷專題｜民視新聞網</title>
+    <title>「報復性罷免」止步高雄？黃捷罷免案投票門檻、罷免時程、Live開票一次看｜民視數位專題｜</title>
 
     <link rel="icon" href="/images/favicon.ico" />
     <link rel="canonical" href="https://www.ftvnews.com.tw/topics/bajay/index.html" />
@@ -63,7 +64,13 @@
             <section id="ch1">
                 <h2>{{chapter1.title}}</h2>
                 <div class="box_layout">
-                    <div class="box_vote">
+                    <div v-if="!mobile" class="box_vote">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/XxJKnDLYZz4"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div v-if="mobile" class="box_vote">
                         <iframe width="100%" height="500" src="https://www.youtube.com/embed/XxJKnDLYZz4"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -142,8 +149,11 @@
 
             <section id="ch6">
                 <h2>{{chapter6.title}}</h2>
+                <iframe src="https://www.ftvnews.com.tw/tag/%E9%BB%83%E6%8D%B7/" style="border:0px #ffffff none;"
+                    name="myiFrame" scrolling="yes" frameborder="0" marginheight="0px" marginwidth="0px" height="600px"
+                    width="100%px" allowfullscreen></iframe>
                 <div class="readmore">
-                    <a :href="chapter6.link" :target="chapter6.target">點我看更多＃罷捷</a>
+                    <a :href="chapter6.link" :target="chapter6.target">點我看更多<br><span>「黃捷罷免案」相關新聞</span></a>
                 </div>
             </section>
         </main>

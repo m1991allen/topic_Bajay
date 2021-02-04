@@ -158,7 +158,7 @@ let vm = new Vue({
                         if (data.agree == 0 && data.disagree == 0) {
                             vote_agree.textContent = '未開票'
                             vote_disagree.textContent = '未開票'
-                        } 
+                        }
                         // else {
                         //     vote_agree.textContent = data.agree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
                         //     vote_disagree.textContent = data.disagree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
@@ -234,6 +234,7 @@ let vm = new Vue({
                 this.mobile = false
                 this.menu = false
             }
+
         },
     },
 })
