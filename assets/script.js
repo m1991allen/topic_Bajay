@@ -207,7 +207,6 @@ let vm = new Vue({
                 this.scroll = false
             } else {
                 this.scroll = true
-
             }
         },
 
