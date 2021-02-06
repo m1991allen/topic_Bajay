@@ -159,30 +159,30 @@ let vm = new Vue({
                             vote_agree.textContent = '未開票'
                             vote_disagree.textContent = '未開票'
                         }
-                        // else {
-                        //     vote_agree.textContent = data.agree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
-                        //     vote_disagree.textContent = data.disagree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
-                        //     maxVote()
-                        // }
-                        // function maxVote() {
-                        //     let agreebar = (data.agree / 100000 * 100).toFixed(2)
-                        //     let diagreebar = (data.disagree / 100000 * 100).toFixed(2)
+                        else {
+                            vote_agree.textContent = data.agree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
+                            vote_disagree.textContent = data.disagree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
+                            maxVote()
+                        }
+                        function maxVote() {
+                            let agreebar = (data.agree / 100000 * 100).toFixed(2)
+                            let diagreebar = (data.disagree / 100000 * 100).toFixed(2)
 
-                        //     if (agreebar > 100) {
-                        //         $(vote_agree).css('width', 100 + '%')
-                        //     }
-                        //     else {
-                        //         $(vote_agree).css('width', agreebar + '%')
-                        //     }
+                            if (agreebar > 100) {
+                                $(vote_agree).css('width', 100 + '%')
+                            }
+                            else {
+                                $(vote_agree).css('width', agreebar + '%')
+                            }
 
-                        //     if (diagreebar > 100) {
-                        //         $(vote_disagree).css('width', 100 + '%')
-                        //     }
-                        //     else {
-                        //         $(vote_disagree).css('width', diagreebar + '%')
-                        //     }
+                            if (diagreebar > 100) {
+                                $(vote_disagree).css('width', 100 + '%')
+                            }
+                            else {
+                                $(vote_disagree).css('width', diagreebar + '%')
+                            }
 
-                        // }
+                        }
 
                     })
                     .catch(function (error) {
@@ -190,18 +190,6 @@ let vm = new Vue({
                         console.log(error);
                     })
             }, 5000)
-
-            //相關新聞 
-            // axios.get('https://cors-anywhere.herokuapp.com/https://ftvnews-api2.azurewebsites.net/API/FtvGetNewsWeb.aspx?Cate=%E6%AD%A6%E6%BC%A2%E8%82%BA%E7%82%8E&Page=1&sp=6')
-            //     .then(function (response) {
-            //         let data = response.data;
-            //         console.log(data)
-
-            //     })
-            //     .catch(function (error) {
-            //         // handle error
-            //         console.log(error);
-            //     })
         },
 
         showMenu() {
