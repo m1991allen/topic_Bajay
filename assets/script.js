@@ -5,7 +5,7 @@ let vm = new Vue({
         main1: '罷',
         main2: '捷',
         title: '投票2/6登場',
-        subtitle: '開票、門檻一次看',
+        subtitle: '開票數據看這邊',
         arrow: '點我向下看',
         slogan: [
             { img1: './assets/images/右上.png', alt: 'slogan' },
@@ -123,6 +123,7 @@ let vm = new Vue({
         menu: true, // 手機版漢堡選單按鈕狀態
         close: true, // 手機版漢堡選單關閉按鈕狀態
         scroll: false, // goToTop按鈕顯示狀態
+        result: false,
 
     },
 
@@ -130,7 +131,6 @@ let vm = new Vue({
         this.getAPI()
         this.handleResize()
         this.showGoToTop()
-
     },
 
     created: function () {
@@ -148,48 +148,58 @@ let vm = new Vue({
     methods: {
         getAPI() {
             //票數
-            setInterval(() => {
-                let vote_agree = document.querySelector('.vote_agree_bar');
-                let vote_disagree = document.querySelector('.vote_disagree_bar');
+            // setInterval(() => {
+            let vote_agree = document.querySelector('.vote_agree_bar');
+            let vote_disagree = document.querySelector('.vote_disagree_bar');
 
-                axios.get('https://www.ftvnews.com.tw/api/Vote0206.aspx')
-                    .then(function (response) {
-                        let data = response.data;
-                        if (data.agree == 0 && data.disagree == 0) {
-                            vote_agree.textContent = '未開票'
-                            vote_disagree.textContent = '未開票'
+            axios.get('https://www.ftvnews.com.tw/api/Vote0206.aspx')
+                .then(function (response) {
+                    let data = response.data;
+                    if (data.agree == 0 && data.disagree == 0) {
+                        vote_agree.textContent = '未開票'
+                        vote_disagree.textContent = '未開票'
+                    }
+                    else {
+                        vote_agree.textContent = data.agree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
+                        vote_disagree.textContent = data.disagree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
+                        maxVote()
+                        resultVote()
+                    }
+                    function maxVote() {
+                        let agreebar = (data.agree / 100000 * 100).toFixed(2)
+                        let diagreebar = (data.disagree / 100000 * 100).toFixed(2)
+
+                        if (agreebar > 100) {
+                            $(vote_agree).css('width', 100 + '%')
                         }
                         else {
-                            vote_agree.textContent = data.agree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
-                            vote_disagree.textContent = data.disagree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票';
-                            maxVote()
-                        }
-                        function maxVote() {
-                            let agreebar = (data.agree / 100000 * 100).toFixed(2)
-                            let diagreebar = (data.disagree / 100000 * 100).toFixed(2)
-
-                            if (agreebar > 100) {
-                                $(vote_agree).css('width', 100 + '%')
-                            }
-                            else {
-                                $(vote_agree).css('width', agreebar + '%')
-                            }
-
-                            if (diagreebar > 100) {
-                                $(vote_disagree).css('width', 100 + '%')
-                            }
-                            else {
-                                $(vote_disagree).css('width', diagreebar + '%')
-                            }
-
+                            $(vote_agree).css('width', agreebar + '%')
                         }
 
-                    })
-                    .catch(function (error) {
-                        // handle error
-                        console.log(error);
-                    })
-            }, 5000)
+                        if (diagreebar > 100) {
+                            $(vote_disagree).css('width', 100 + '%')
+                        }
+                        else {
+                            $(vote_disagree).css('width', diagreebar + '%')
+                        }
+
+                    }
+
+                    function resultVote() {
+                        let vote_result = document.querySelector('#result');
+                        if (data.agree > 72, 892 && data.agree > vote_disagree) {
+                            vote_result.textContent = '罷免通過'
+                        } else {
+                            vote_result.textContent = '未達門檻'
+                        }
+                    }
+
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+            // }, 5000)
         },
 
         showMenu() {
